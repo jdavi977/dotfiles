@@ -1,0 +1,31 @@
+precision mediump float;
+
+varying vec2 v_texcoord;
+uniform sampler2D tex;
+
+void main() {
+    // Original screen pixel
+    vec4 orig = texture2D(tex, v_texcoord);
+
+    // Thickness of border in normalized coordinates (0.0–1.0)
+    // 0.01 ≈ 1% of the screen size. Make this bigger for a thicker border.
+    float thickness = 0.01;
+
+    // Distance from this pixel to each edge (in UV space)
+    float left   = v_texcoord.x;
+    float right  = 1.0 - v_texcoord.x;
+    float top    = v_texcoord.y;
+    float bottom = 1.0 - v_texcoord.y;
+
+    // How close we are to ANY edge
+    float edgeDist = min(min(left, right), min(top, bottom));
+
+    // 1.0 at the border, 0.0 in the center, with a small soft fade
+    float borderMask = 1.0 - smoothstep(thickness, thickness + 0.003, edgeDist);
+
+    // Color of the border – change this to match your theme
+    vec4 borderColor = vec4(0.36, 0.52, 1.0, 1.0); // light blue
+
+    // Mix original screen with border color only on the edges
+    gl_FragColor = mix(orig, borderColor, borderMask);
+}

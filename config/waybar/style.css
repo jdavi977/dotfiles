@@ -1,4 +1,5 @@
 @import "colors.css";
+
 * {
     border: none;
     border-radius: 0;
@@ -8,223 +9,157 @@
     min-height: 0;
 }
 
-/* #workspaces button.empty {
-    color: #E08290;
-} */
-
-/* Fix icon alignment - add extra left padding to center icons */
-#custom-launcher {
-    font-size: 18px;
-    padding: 5px 12px;
-}
-
-#custom-clipboard,
-#custom-screenshot {
-    padding: 5px 12px;
-}
-
-#custom-power {
-    font-size: 16px;
-    padding: 5px 12px;
-}
-
+/* Whole bar: slight margin from top, transparent so Hyprland shows through */
 window#waybar {
-    background: rgba(20, 18, 24, 0.7); /* @surface with opacity */
-    color: @on_surface;
-}
-
-/* Left modules */
-#custom-launcher {
-    background: @primary;
-    color: @on_primary;
-    padding: 5px 15px;
-    margin: 5px 0 5px 5px;
-    border-radius: 16px;
-    font-size: 18px;
-    min-height: 24px;
-    padding-top: 3px;
-    padding-bottom: 5px;
-    padding-left: 9px;
-    padding-right: 13px;
-}
-
-#custom-code {
-    background: @surface_container_high;
-    color: @tertiary;
-    padding: 5px 12px;
-    margin: 5px 2px;
-    border-radius: 16px;
-    font-size: 16px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-left: 6px;
-    padding-right: 12px;
-}
-
-#cpu,
-#memory,
-#network,
-#custom-gpu,
-#disk {
-    background: @surface_container_high;
-    color: @on_surface;
-    padding: 5px 12px;
-    margin: 5px 2px;
-    border-radius: 16px;
-}
-
-#cpu {
-    color: @secondary;
-}
-
-#memory {
-    color: @tertiary;
-}
-
-#network {
-    color: @secondary;
-}
-
-#custom-gpu {
-    color: @tertiary;
-}
-
-#disk {
-    color: @secondary;
-}
-
-/* Center modules */
-#workspaces {
     background: transparent;
-    margin: 5px;
 }
+
+/* Global spacing between modules */
+#waybar > box > * {
+    margin: 2px 4px;
+}
+
+#custom-launcher {
+    background: @background;
+    color: @outline;
+    border-radius: 10px;
+    border-color: @outline;
+    border-width: 2px;
+    border-style: solid;
+    font-size: 18px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    min-height: 0;
+}
+
+/* hyprland/workspaces – small rounded tags */
+#workspaces {
+    background: @background;
+    border-radius: 10px;
+    padding: 4px 8px;
+    border-color: @outline;
+    border-width: 2px;
+    border-style: solid;
+}
+
+#quick-actions {
+    background: @background;
+    border-radius: 10px;
+    padding: 4px 8px;
+    border-color: @outline;
+    border-width: 2px;
+    border-style: solid;
+}
+
+#weather {
+    background: @background;
+    border-radius: 10px;
+    padding: 4px 8px;
+    border-color: @outline;
+    border-width: 2px;
+    border-style: solid;
+}
+
+#music {
+    background: @background;
+    border-radius: 10px;
+    padding: 4px 8px;
+    border-color: @outline;
+    border-width: 2px;
+    border-style: solid;
+}
+
+#datetime {
+    background: @background;
+    border-radius: 10px;
+    padding: 4px 8px;
+    border-color: @outline;
+    border-width: 2px;
+    border-style: solid;
+}
+
+/*
+INDIVIDUAL ITEMS
+*/
 
 #workspaces button {
-    background: @surface_container_high;
     color: @outline;
-    padding: 5px 5px;
-    margin: 0 3px;
-    border-radius: 16px;
-    border: none;
-    box-shadow: none;
-    transition: all 0.3s ease;
+    margin: 0 2px;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
-#workspaces button:hover {
-    background: @surface_container_highest;
-    color: @on_surface;
-    font-weight: 700;
-    border: none;
-    box-shadow: none;
-}
 
+/* CHANGE ICON LATER */
 #workspaces button.active {
-    background: @primary;
-    padding: 5px 15px;
-    color: @on_primary;
+    color: @outline;
     font-weight: 700;
 }
 
-#workspaces button.active:hover {
-    background: @primary;
-    color: @on_primary;
-    font-weight: 700;
-}
-
-/* Right modules */
-#custom-ime,
-#clock,
-#custom-weather,
-#custom-clipboard,
-#custom-screenshot,
-#network.wifi,
-#pulseaudio,
-#custom-power {
+#custom-wallpaper {
     background: @surface_container_high;
-    color: @on_surface;
-    padding: 5px 12px;
-    margin: 5px 2px;
-    border-radius: 16px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-left: 9px;
-    padding-right: 12px;
+    color: #8897F4; /* Blue */
+    border-radius: 14px;
+    padding: 4px 10px;
+    font-size: 14px;
 }
 
-#custom-ime {
-    color: @secondary;
-    font-weight: 600;
+#mpris {
+    color: @whiteoutline; /* Cyan */
 }
 
-#clock {
-    color: @tertiary;
-    font-weight: 600;
+#image {
+    border-radius: 6px;
+    margin-right: 6px;
 }
 
-#custom-weather {
-    color: @secondary;
-}
 
 #pulseaudio {
-    color: @tertiary;
-}
-
-#network.wifi {
-    color: @secondary;
+    color: @outline; /* Cyan */
+    margin: 0 2px;
 }
 
 #pulseaudio.muted {
-    color: @tertiary;
+    opacity: 0.6;
+    color: @whiteoutline; 
+    margin: 0 10px;
 }
 
+/* Clock: a bit more prominent */
+#clock {
+    color: @whiteoutline; /* Cyan */
+    margin: 0 10px;
+}
+
+
+/* Optional notification + quick actions if you show them later */
+#custom-notification,
 #custom-quick-actions {
-    color: @primary_fixed_dim;
-    padding-top: 3px;
-    padding-bottom: 4px;
-    padding-left: 9px;
-    padding-right: 13px;
-}
-
-#custom-power {
-    background: #E08290;
-    color: @on_error;
-    margin-right: 5px;
-    padding: 0 12px;
-    font-size: 16px;
-}
-
-/* Tooltips */
-tooltip {
-    background: @surface_container;
-    border: 2px solid @primary;
-    border-radius: 16px;
+    background: @surface_container_high;
     color: @on_surface;
+    border-radius: 16px;
+    padding: 4px 12px;
+}
+/* Power button – use Pamela's pink from the palette */
+#custom-power {
+    color: @whiteoutline; /* Dark background */
+    font-size: 16px;
+    margin: 0 10px;
+}
+
+/* =======================
+ * Tooltips
+ * ======================= */
+
+tooltip {
+    background: #1D1F28;
+    border: 2px solid #8897F4; /* Blue border like dunst separator */
+    border-radius: 12px;
+    color: #FDFDFD;
 }
 
 tooltip label {
     color: @on_surface;
-    padding: 5px;
-}
-
-#custom-quick-actions,
-#custom-wallpaper {
-    background: @primary;
-    color: @surface_container_high;
-    padding: 5px 12px;
-    margin: 5px 2px;
-    border-radius: 16px;
-    font-size: 16px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-left: 9px;
-    padding-right: 12px;
-}
-
-#custom-notification,
-#mpris {
-    background: @primary;
-    color: @surface_container_high;
-    padding: 5px 12px;
-    margin: 5px 2px;
-    border-radius: 16px;
+    padding: 4px 8px;
 }
